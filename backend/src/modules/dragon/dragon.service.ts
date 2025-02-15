@@ -10,24 +10,31 @@ export class DragonService {
   private dragons: FightingDragon[] = [
     {
       id: 1,
-      name: 'FireDragon',
+      name: 'Fire Dragon',
       strength: 50,
       startHealth: 100,
       currentHealth: 100,
     },
     {
       id: 2,
-      name: 'WaterDragon',
+      name: 'Water Dragon',
       strength: 60,
       startHealth: 100,
       currentHealth: 100,
     },
     {
       id: 3,
-      name: 'EarthDragon',
+      name: 'Earth Dragon',
       strength: 70,
       startHealth: 110,
-      currentHealth: 110,
+      currentHealth: 100,
+    },
+    {
+      id: 4,
+      name: 'Air Dragon',
+      strength: 80,
+      startHealth: 100,
+      currentHealth: 100,
     },
   ];
 

@@ -1,7 +1,8 @@
 export type Dragon = {
   id: number;
   name: string;
-  type: string;
+  strength: number;
+  currentHealth: number;
 };
 
 export type DragonFightRequest = {
