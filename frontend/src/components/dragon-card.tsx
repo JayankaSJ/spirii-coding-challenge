@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { getDragons } from "api/dragon.api";
+import { useDragonsContext } from "contexts/dragons-context";
 import { useFightingContext } from "contexts/fighting-context";
 import React, { useMemo } from "react";
 
@@ -10,14 +9,7 @@ export function DragonCard({
 }) {
   const { fighter1, fighter2, setFighter } = useFightingContext();
 
-  const { data: dragonResponse } = useQuery({
-    queryKey: ["dragons"],
-    queryFn: getDragons,
-  });
-
-  const dragons = useMemo(() => {
-    return dragonResponse || [];
-  }, [dragonResponse]);
+  const { dragons } = useDragonsContext();
 
   const selectedDragon = useMemo(() => {
     return fighterSlot === "fighter1" ? fighter1 : fighter2;
