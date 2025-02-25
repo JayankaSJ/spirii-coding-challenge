@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Dragon } from 'src/common/types/Dragon';
 
-type FightingDragon = Dragon & {
+export type FightingDragon = Dragon & {
   currentHealth: number;
 };
 
