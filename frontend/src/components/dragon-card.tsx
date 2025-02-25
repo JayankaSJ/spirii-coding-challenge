@@ -28,7 +28,11 @@ export function DragonCard({
     <div className="px-6 py-4 flex flex-col gap-4 bg-white rounded-lg shadow-lg">
       <span className="text-lg font-bold">Select your dragon</span>
       <div className="flex flex-col gap-4">
-        <select value={selectedDragon?.id} onChange={handleSelectDragon}>
+        <select
+          value={selectedDragon?.id}
+          data-testid="dragon-select"
+          onChange={handleSelectDragon}
+        >
           <option value="">Select a dragon</option>
           {dragons.map((dragon) => (
             <option key={dragon.id} value={dragon.id}>
