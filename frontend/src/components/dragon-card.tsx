@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { getDragons } from "api/dragon.api";
+import { useDragonsContext } from "contexts/dragons-context";
 import { useFightingContext } from "contexts/fighting-context";
 import React, { useMemo } from "react";
 
@@ -10,14 +9,7 @@ export function DragonCard({
 }) {
   const { fighter1, fighter2, setFighter } = useFightingContext();
 
-  const { data: dragonResponse } = useQuery({
-    queryKey: ["dragons"],
-    queryFn: getDragons,
-  });
-
-  const dragons = useMemo(() => {
-    return dragonResponse || [];
-  }, [dragonResponse]);
+  const { dragons } = useDragonsContext();
 
   const selectedDragon = useMemo(() => {
     return fighterSlot === "fighter1" ? fighter1 : fighter2;
@@ -36,7 +28,11 @@ export function DragonCard({
     <div className="px-6 py-4 flex flex-col gap-4 bg-white rounded-lg shadow-lg">
       <span className="text-lg font-bold">Select your dragon</span>
       <div className="flex flex-col gap-4">
-        <select value={selectedDragon?.id} onChange={handleSelectDragon}>
+        <select
+          value={selectedDragon?.id}
+          data-testid="dragon-select"
+          onChange={handleSelectDragon}
+        >
           <option value="">Select a dragon</option>
           {dragons.map((dragon) => (
             <option key={dragon.id} value={dragon.id}>

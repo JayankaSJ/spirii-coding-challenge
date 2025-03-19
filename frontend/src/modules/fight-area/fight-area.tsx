@@ -7,7 +7,7 @@ export function FightArea() {
   const { isAnyFighterDead } = useFightingContext();
 
   if (isAnyFighterDead) {
-    return ShowWinner();
+    return <ShowWinner />;
   }
 
   return (
